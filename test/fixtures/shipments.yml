@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  no_of_pkgs: MyString
+  invoice_reference: MyString
+  goods_description: MyText
+  mawb_mbl_no: MyString
+  hawb_hbl_no: MyString
+  agent: MyString
+  bill_no: MyString
+  bill_date: 2012-03-14
+  transport_type: MyString
+  transport_id: 1
+  cargo_receipt_date: 2012-03-14
+  job_no: 1
+
+two:
+  no_of_pkgs: MyString
+  invoice_reference: MyString
+  goods_description: MyText
+  mawb_mbl_no: MyString
+  hawb_hbl_no: MyString
+  agent: MyString
+  bill_no: MyString
+  bill_date: 2012-03-14
+  transport_type: MyString
+  transport_id: 1
+  cargo_receipt_date: 2012-03-14
+  job_no: 1

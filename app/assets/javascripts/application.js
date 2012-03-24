@@ -6,4 +6,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.min.js
+//= require jquery-ui.min.js
 //= require_tree .

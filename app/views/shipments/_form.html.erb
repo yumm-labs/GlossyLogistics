@@ -1,0 +1,83 @@
+<%= form_for(@shipment) do |f| %>
+<% if @shipment.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@shipment.errors.count, "error") %> prohibited this import from being saved:</h2>
+	<ul>
+		<% @shipment.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<% if @shipment.class == Import %>
+<div class="field">
+	<%= f.label :igm_no %>
+	<br />
+	<%= f.number_field :igm_no %>
+</div>
+<div class="field">
+	<%= f.label :igm_date %>
+	<br />
+	<%= f.date_select :igm_date %>
+</div>
+<% end %>
+
+<%= f.fields_for :shipment do |shipment| %>
+<div class="field">
+	<%= shipment.label :number_of_pkgs %>
+	<br />
+	<%= shipment.text_field :no_of_pkgs %>
+</div>
+<div class="field">
+	<%= shipment.label :invoice_reference %>
+	<br />
+	<%= shipment.text_field :invoice_reference %>
+</div>
+<div class="field">
+	<%= shipment.label :goods_description %>
+	<br />
+	<%= shipment.text_area :goods_description %>
+</div>
+<div class="field">
+	<%= shipment.label "MAWB MBL No" %>
+	<br />
+	<%= shipment.text_field :mawb_mbl_no %>
+</div>
+<div class="field">
+	<%= shipment.label "HAWB HBL No" %>
+	<br />
+	<%= shipment.text_field :hawb_hbl_no %>
+</div>
+<div class="field">
+	<%= shipment.label :agent %>
+	<br />
+	<%= shipment.text_field :agent %>
+</div>
+<div class="field">
+	<%= shipment.label 'Bill No' %>
+	<br />
+	<%= shipment.text_field :bill_no %>
+</div>
+<div class="field">
+	<%= shipment.label :bill_date %>
+	<br />
+	<%= shipment.date_select :bill_date %>
+</div>
+<div class="field">
+	<%= shipment.label :cargo_receipt_date %>
+	<br />
+	<%= shipment.date_select :cargo_receipt_date %>
+</div>
+<div class="field">
+	<%= shipment.label :job_no %>
+	<br />
+	<%= shipment.number_field :job_no %>
+</div>
+<% end %>
+
+<%= f.submit %>
+</div>
+<% end %> 

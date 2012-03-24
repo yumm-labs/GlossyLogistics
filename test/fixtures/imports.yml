@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  igm_no: 1
+  igm_date: 2012-03-14
+
+two:
+  igm_no: 1
+  igm_date: 2012-03-14

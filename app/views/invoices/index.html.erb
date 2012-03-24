@@ -1,0 +1,53 @@
+<h1>Listing invoices</h1>
+
+<table>
+  <tr>
+    <th>Shipment</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Line1</th>
+    <th>Line2</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Country</th>
+    <th>Pincode</th>
+    <th>Invoice date</th>
+    <th>Invoice number</th>
+    <th>Service charge</th>
+    <th>Service tax amount</th>
+    <th>Service tax percentage</th>
+    <th>Total amount</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @invoices.each do |invoice| %>
+  <tr>
+    <td><%= invoice.shipment %></td>
+    <td><%= invoice.name %></td>
+    <td><%= invoice.email %></td>
+    <td><%= invoice.phone %></td>
+    <td><%= invoice.line1 %></td>
+    <td><%= invoice.line2 %></td>
+    <td><%= invoice.city %></td>
+    <td><%= invoice.state %></td>
+    <td><%= invoice.country %></td>
+    <td><%= invoice.pincode %></td>
+    <td><%= invoice.invoice_date %></td>
+    <td><%= invoice.invoice_number %></td>
+    <td><%= invoice.service_charge %></td>
+    <td><%= invoice.service_tax_amount %></td>
+    <td><%= invoice.service_tax_percentage %></td>
+    <td><%= invoice.total_amount %></td>
+    <td><%= link_to 'Show', invoice %></td>
+    <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
+    <td><%= link_to 'Destroy', invoice, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Invoice', new_invoice_path %>

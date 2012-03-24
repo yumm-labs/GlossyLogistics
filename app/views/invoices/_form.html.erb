@@ -1,0 +1,63 @@
+<%= form_for(invoice, :remote => true) do |f| %>
+<% if invoice.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(invoice.errors.count, "error") %> prohibited this invoice from being saved:</h2>
+	<ul>
+		<% invoice.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<%= f.hidden_field :shipment_id if invoice.new_record? %>
+<table>
+	<tr>
+		<td><%= f.label :line1 %></td><td><%= f.text_field :line1 %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :line2 %></td><td><%= f.text_field :line2 %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :city %></td><td><%= f.text_field :city %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :state %></td><td><%= f.text_field :state %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :country %></td><td><%= f.text_field :country %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :pincode %></td><td><%= f.text_field :pincode %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :email %></td><td><%= f.text_field :email %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :phone %></td><td><%= f.text_field :phone %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :invoice_date %></td><td><%= f.text_field :invoice_date %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :invoice_number %></td><td><%= f.text_field :invoice_number %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :service_charge %></td><td><%= f.text_field :service_charge %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :service_tax_amount %></td><td><%= f.text_field :service_tax_amount %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :service_tax_percentage %></td><td><%= f.text_field :service_tax_percentage %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :total_amount %></td><td><%= f.text_field :total_amount %></td>
+	</tr>
+</table>
+<div class="actions">
+	<%= f.submit %>
+</div>
+<% end %> 
