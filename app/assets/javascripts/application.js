@@ -7,7 +7,8 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
-//= require active_scaffold
+//= require jquery.min.js
+//= require jquery-ui.min.js
 //= require_tree .
 
 //= require autocomplete-rails

@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>No of pkgs:</b>
+  <%= @shipment.no_of_pkgs %>
+</p>
+
+<p>
+  <b>Invoice reference:</b>
+  <%= @shipment.invoice_reference %>
+</p>
+
+<p>
+  <b>Goods description:</b>
+  <%= @shipment.goods_description %>
+</p>
+
+<p>
+  <b>Mawb mbl no:</b>
+  <%= @shipment.mawb_mbl_no %>
+</p>
+
+<p>
+  <b>Hawb hbl no:</b>
+  <%= @shipment.hawb_hbl_no %>
+</p>
+
+<p>
+  <b>Agent:</b>
+  <%= @shipment.agent %>
+</p>
+
+<p>
+  <b>Bill no:</b>
+  <%= @shipment.bill_no %>
+</p>
+
+<p>
+  <b>Bill date:</b>
+  <%= @shipment.bill_date %>
+</p>
+
+<p>
+  <b>Transport type:</b>
+  <%= @shipment.transport_type %>
+</p>
+
+<p>
+  <b>Transport:</b>
+  <%= @shipment.transport_id %>
+</p>
+
+<p>
+  <b>Cargo receipt date:</b>
+  <%= @shipment.cargo_receipt_date %>
+</p>
+
+<p>
+  <b>Job no:</b>
+  <%= @shipment.job_no %>
+</p>
+
+
+<%= link_to 'Edit', edit_shipment_path(@shipment) %> |
+<%= link_to 'Back', shipments_path %>

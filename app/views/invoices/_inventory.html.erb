@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Shipment:</b>
+  <%= invoice.shipment %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= invoice.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= invoice.email %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= invoice.phone %>
+</p>
+
+<p>
+  <b>Line1:</b>
+  <%= invoice.line1 %>
+</p>
+
+<p>
+  <b>Line2:</b>
+  <%= invoice.line2 %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= invoice.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= invoice.state %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%= invoice.country %>
+</p>
+
+<p>
+  <b>Pincode:</b>
+  <%= invoice.pincode %>
+</p>
+
+<p>
+  <b>Invoice date:</b>
+  <%= invoice.invoice_date %>
+</p>
+
+<p>
+  <b>Invoice number:</b>
+  <%= invoice.invoice_number %>
+</p>
+
+<p>
+  <b>Service charge:</b>
+  <%= invoice.service_charge %>
+</p>
+
+<p>
+  <b>Service tax amount:</b>
+  <%= invoice.service_tax_amount %>
+</p>
+
+<p>
+  <b>Service tax percentage:</b>
+  <%= invoice.service_tax_percentage %>
+</p>
+
+<p>
+  <b>Total amount:</b>
+  <%= invoice.total_amount %>
+</p>
+
+
+<%= link_to 'Edit', edit_invoice_path(invoice) %>
