@@ -25,59 +25,124 @@
 </div>
 <% end %>
 
-<%= f.fields_for :shipment do |shipment| %>
 <div class="field">
-	<%= shipment.label :number_of_pkgs %>
+	<%= label :shipment,:industry_name %>
 	<br />
-	<%= shipment.text_field :no_of_pkgs %>
+	<%= select :shipment,:industry_id, [['Lisbon', 1], ['Madrid', 2]]%>
+	<%#= shipment.text_field :industry_id %>
+</div>
+
+<div class="field">
+	<%= label :shipment,:User_name %>
+	<br />
+	<%= select :shipment,:user_id, [['Lisbon', 1], ['Madrid', 2]]%>
+	<%#= shipment.text_field :industry_id %>
+</div>
+
+<div class="field">
+	<%= label :shipment,:mode_of_transport %>
+	<br />
+	<%= collection_select :shipment,:mode_of_transport_id, ModeOfTransport.all, 'id','name'%>
+	<%#= shipment.text_field :industry_id %>
+</div>
+
+<div class="field">
+	<%= label :shipment,:destination %>
+	<br />
+	<%= select :shipment,:destination_id, [['Lisbon', 1], ['Madrid', 2]]%>
+	<%#= shipment.text_field :industry_id %>
+</div>
+
+<div class="field">
+	<%= label :shipment,:status %>
+	<br />
+	<%= collection_select :shipment,:status_id, Status.all, 'id','name'%>
+	<%#= shipment.text_field :industry_id %>
+</div>
+
+
+<div class="field">
+	<%= f.label :number_of_pkgs %>
+	<br />
+	<%= f.text_field :no_of_pkgs %>
 </div>
 <div class="field">
-	<%= shipment.label :invoice_reference %>
+	<%= f.label :invoice_reference %>
 	<br />
-	<%= shipment.text_field :invoice_reference %>
+	<%= f.text_field :invoice_reference %>
 </div>
 <div class="field">
-	<%= shipment.label :goods_description %>
+	<%= f.label :goods_description %>
 	<br />
-	<%= shipment.text_area :goods_description %>
+	<%= f.text_area :goods_description %>
 </div>
 <div class="field">
-	<%= shipment.label "MAWB MBL No" %>
+	<%= f.label "MAWB MBL No" %>
 	<br />
-	<%= shipment.text_field :mawb_mbl_no %>
+	<%= f.text_field :mawb_mbl_no %>
 </div>
 <div class="field">
-	<%= shipment.label "HAWB HBL No" %>
+	<%= f.label "HAWB HBL No" %>
 	<br />
-	<%= shipment.text_field :hawb_hbl_no %>
+	<%= f.text_field :hawb_hbl_no %>
 </div>
 <div class="field">
-	<%= shipment.label :agent %>
+	<%= f.label :agent %>
 	<br />
-	<%= shipment.text_field :agent %>
+	<%= f.text_field :agent %>
 </div>
 <div class="field">
-	<%= shipment.label 'Bill No' %>
+	<%= f.label 'Bill No' %>
 	<br />
-	<%= shipment.text_field :bill_no %>
+	<%= f.text_field :bill_no %>
 </div>
 <div class="field">
-	<%= shipment.label :bill_date %>
+	<%= f.label :bill_date %>
 	<br />
-	<%= shipment.date_select :bill_date %>
+	<%= f.date_select :bill_date %>
 </div>
 <div class="field">
-	<%= shipment.label :cargo_receipt_date %>
+	<%= f.label :cargo_receipt_date %>
 	<br />
-	<%= shipment.date_select :cargo_receipt_date %>
+	<%= f.date_select :cargo_receipt_date %>
 </div>
 <div class="field">
-	<%= shipment.label :job_no %>
+	<%= f.label :job_no %>
 	<br />
-	<%= shipment.number_field :job_no %>
+	<%= f.number_field :job_no %>
 </div>
-<% end %>
 
 <%= f.submit %>
 </div>
 <% end %> 
+
+<script type="text/javascript">
+	 $(document).ready(function(){                
+                $("#shipment_industry_id").fcbkcomplete({
+                    json_url: "/shipments/search_by_industry_name",
+                    addontab: true,                   
+                    maxitems: 10,
+                    input_min_size: 0,
+                    height: 10,
+                    cache: true,
+                    newel: true,
+                    select_all_text: "select",
+                });
+            });
+            
+            
+             $(document).ready(function(){                
+                $("#shipment_destination_id").fcbkcomplete({
+                    json_url: "/shipments/search_by_destination_name",
+                    addontab: true,                   
+                    maxitems: 10,
+                    input_min_size: 0,
+                    height: 10,
+                    cache: true,
+                    newel: true,
+                    select_all_text: "select",
+                });
+            });
+            
+            
+</script>

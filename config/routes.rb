@@ -1,4 +1,10 @@
 GlossyLogistics::Application.routes.draw do
+  resources :users
+
+  resources :destinations
+
+  resources :statuses
+
   resources :industries
 
   resources :flights
@@ -10,6 +16,10 @@ GlossyLogistics::Application.routes.draw do
   resources :products
 
   resources :imports
+  
+  match 'shipments/search_by_industry_name' => 'shipments#search_by_industry_name', :via => :get
+  match 'shipments/search_by_destination_name' => 'shipments#search_by_destination_name', :via => :get
+
 
   resources :shipments
 

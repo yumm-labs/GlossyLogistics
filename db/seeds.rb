@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+mode_of_transports = ModeOfTransport.create([{name: 'AirLine'},{name: 'Vessel'}])
