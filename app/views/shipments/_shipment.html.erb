@@ -19,13 +19,13 @@
 			<td height="10">item13</td>
 			<td height="10">item14</td>
 			<td height="10">item15</td> -->
-		</tr>
+		</tr>	
 	</table>
 	<div class="shipping_row_expand" id="shipping_row_expand_<%= shipment.id %>">
 		<div class="expand_panel">
 			<p>
-				<% @shipment = shipment.transport %>
-				<%= render 'form' unless @shipment.blank? %>
+				<% @shipment = shipment %>
+				<%= render 'form' unless shipment.blank? %>
 			</p>
 		</div>
 	</div>

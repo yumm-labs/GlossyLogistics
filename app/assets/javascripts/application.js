@@ -5,7 +5,10 @@
 // the compiled file.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
 //= require jquery.min.js
 //= require jquery-ui.min.js
 //= require_tree .
+
+//= require autocomplete-rails

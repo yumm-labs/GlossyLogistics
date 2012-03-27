@@ -11,18 +11,53 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120320160730) do
+ActiveRecord::Schema.define(:version => 20120324185655) do
+
+  create_table "airlines", :force => true do |t|
+    t.string   "name"
+    t.string   "country"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "destinations", :force => true do |t|
+    t.string   "name"
+    t.string   "country"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "exports", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
+  create_table "flights", :force => true do |t|
+    t.string   "name"
+    t.integer  "no"
+    t.text     "description"
+    t.integer  "airline_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "flights", ["airline_id"], :name => "index_flights_on_airline_id"
+
   create_table "imports", :force => true do |t|
     t.integer  "igm_no"
     t.date     "igm_date"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "industries", :force => true do |t|
+    t.string   "name"
+    t.integer  "owner_id"
+    t.text     "description"
+    t.string   "address"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "invoice_product_details", :force => true do |t|
@@ -59,6 +94,12 @@ ActiveRecord::Schema.define(:version => 20120320160730) do
 
   add_index "invoices", ["shipment_id"], :name => "index_invoices_on_shipment_id"
 
+  create_table "mode_of_transports", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "products", :force => true do |t|
     t.string   "name"
     t.string   "identifier"
@@ -80,8 +121,42 @@ ActiveRecord::Schema.define(:version => 20120320160730) do
     t.integer  "transport_id"
     t.date     "cargo_receipt_date"
     t.integer  "job_no"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+    t.integer  "user_id"
+    t.integer  "industry_id"
+    t.integer  "mode_of_transport_id"
+    t.integer  "status_id"
+    t.integer  "destination_id"
   end
+
+  create_table "statuses", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "user_infos", :force => true do |t|
+    t.string   "name"
+    t.integer  "no"
+    t.string   "password"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "title"
+    t.string   "name"
+    t.string   "email"
+    t.integer  "mobile"
+    t.integer  "phone"
+    t.integer  "industry_id"
+    t.string   "description"
+    t.string   "password"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "users", ["industry_id"], :name => "index_users_on_industry_id"
 
 end
