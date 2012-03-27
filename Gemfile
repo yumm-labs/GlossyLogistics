@@ -34,3 +34,7 @@ group :test do
   # Pretty printed test output
   gem 'turn', '~> 0.8.3', :require => false
 end
+
+group :development do
+  gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
+end

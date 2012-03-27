@@ -1,0 +1,105 @@
+<html>
+	<head>
+		<title>Invoice</title>
+		<link href="glossy_table.css" type="text/css" rel="stylesheet" media="screen" />
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="wrapper_content">
+				<div class="contentWrapper">
+					<h1 class="invoice">INVOICE</h1>
+					<div id="wrapper_content1" class="contents">
+						<div class="child_content_left">
+							<p>
+								<b>To:</b>
+								<br/>
+								<%= invoice.line1 %>
+								<br/>
+								<%= invoice.line2 %>
+								<br/>
+								<%= invoice.city %>
+								<br/>
+								<%= invoice.state %>
+								<br/>
+								<%= invoice.country %> <%= '-' + invoice.pincode unless invoice.pincode.blank? %>
+								<br/>
+							</p>
+						</div>
+						<div class="child_content_right">
+							<table width="100%">
+								<tr>
+									<td>DATE</td><td>:</td><td><%= invoice.invoice_date %></td>
+								</tr>
+								<tr>
+									<td>INV. No.</td><td>:</td><td><%= invoice.invoice_number %></td>
+								</tr>
+								<tr>
+									<td>DOC. No.</td><td>:</td><td></td>
+								</tr>
+								<tr>
+									<td>BE No.</td><td>:</td><td></td>
+								</tr>
+								<tr>
+									<td>ASS. VALUE</td><td>:</td><td></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<!--end of wrapper_content1-->
+					<div id="wrapper_content2" class="contents">
+						<div class="child_content_wrapper2">
+							<p>
+								<b>IMPORTER:</b> P.S.S. KRISHNAMURTHI
+								AWB NO: 217 6172 9205 / 060 01105058
+								INV NO: 17 / 11.05.11
+								DRY CROPS – 2 PKGS / 20 KGS
+							</p>
+						</div>
+					</div>
+					<div id="wrapper_content3" class="contents">
+						<div class="child_content_wrapper3">
+							<table width="100%" border='1' cellspacing="0">
+								<tr>
+									<td width="20%" align="center" height="50"><b><u>S.No.</u></b></td>
+									<td width="60%" align="center" height="50"><b><u>Description</u></b></td>
+									<td width="20%" align="center" height="50"><b><u>Amount</u></b></td>
+								</tr>
+								<% invoice.invoice_product_details.each do |product_details| %>
+								<tr>
+									<td>01.</td>
+									<td><%= product_details.name %></td>
+									<td><%= product_details.amount %></td>
+								</tr>
+								<% end %>
+								<tr>
+									<td colspan="2" align="right" height="30">TOTAL&nbsp;&nbsp;&nbsp;</td>
+									<td><%= invoice.total_amount %></td>
+								</tr>
+								<tr>
+									<td colspan="2" align="right" height="30">Service Tax <%= invoice.service_tax_percentage %>&nbsp;&nbsp;&nbsp;</td>
+									<td><%= invoice.service_tax_amount %></td>
+								</tr>
+								<tr>
+									<td colspan="2" align="right" height="40">Service Charge&nbsp;&nbsp;&nbsp;</td>
+									<td><%= invoice.service_charge %></td>
+								</tr>
+								<tr>
+									<td colspan="2" align="right" height="40">GRAND TOTAL&nbsp;&nbsp;&nbsp;</td>
+									<td><%= invoice.total_amount %></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<p>
+						Rupees Fifteen Thousand Six Hundred And Twenty Two Only
+						<br />
+						--------------------------------------------------------------------------------------------------------------
+						<br />
+						Interest @ 24% will be charged on Bill if payment
+						Not settled within 15 days.
+					</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

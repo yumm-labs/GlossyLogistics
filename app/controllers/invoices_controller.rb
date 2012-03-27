@@ -35,6 +35,12 @@ class InvoicesController < ApplicationController
   # GET /invoices/1/edit
   def edit
     @invoice = Invoice.find(params[:id])
+
+    respond_to do |format|
+      format.html { render 'edit', :locals => { :invoice => @invoice } }
+      format.js { render :locals => { :invoice => @invoice }, :layout => false }
+      format.json { render json: @invoice }
+    end
   end
 
   # POST /invoices
@@ -61,6 +67,7 @@ class InvoicesController < ApplicationController
     respond_to do |format|
       if @invoice.update_attributes(params[:invoice])
         format.html { redirect_to @invoice, notice: 'Invoice was successfully updated.' }
+        format.js { render 'show', :locals => { :invoice => @invoice }, :layout => false, notice: 'Invoice was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -79,5 +86,17 @@ class InvoicesController < ApplicationController
       format.html { redirect_to invoices_url }
       format.json { head :no_content }
     end
+  end
+
+  def send_mail
+    render :text => 'Mail has been sent'
+  end
+
+  def send_sms
+    render :text => 'SMS has been sent'
+  end
+
+  def print_preview
+    @invoice = Invoice.find(params[:id])
   end
 end

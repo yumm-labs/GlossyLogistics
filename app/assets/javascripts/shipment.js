@@ -1,27 +1,5 @@
 jQuery(document).ready(function() {
 
-	$(".invoice-dialog-form").dialog({
-		autoOpen : false,
-		height : 550,
-		width : 550,
-		modal : true,
-		// buttons : {
-		// Save : function() {
-		// alert('save clicked');
-		// },
-		// Cancel : function() {
-		// $(this).dialog("close");
-		// }
-		// },
-		close : function() {
-			allFields.val("").removeClass("ui-state-error");
-		}
-	});
-
-	$('.invoice').click(function() {
-		var shipmentId = $(this).closest('li').attr('id');
-		$("#invoice-dialog-form-" + shipmentId).dialog("open");
-	});
 	//This is to expand
 	$(".shipping_details .expand a").click(function() {
 		var id = $(this).parents("table.shipping_details").attr("id");

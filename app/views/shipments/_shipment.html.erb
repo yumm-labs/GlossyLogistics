@@ -10,7 +10,8 @@
 			<td><%= shipment.hawb_hbl_no %></td>
 			<td><%= shipment.agent %></td>
 			<td><%= shipment.transport_type %></td>
-			<td><%= shipment.cargo_receipt_date %></td>
+			<!-- <td><%= shipment.cargo_receipt_date %></td> -->
+			<td><%= shipment.created_at.strftime('%d, %B, %Y') %></td>
 			<td><%= shipment.job_no %></td>
 			<td class="invoice">Invoice</td>
 			<td><%= link_to 'Destroy', shipment, confirm: 'Are you sure?', method: :delete %></td>

@@ -1,73 +1,76 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Line1:</b>
-  <%= invoice.line1 %>
-</p>
-
-<p>
-  <b>Line2:</b>
-  <%= invoice.line2 %>
-</p>
-
-<p>
-  <b>City:</b>
-  <%= invoice.city %>
-</p>
-
-<p>
-  <b>State:</b>
-  <%= invoice.state %>
-</p>
-
-<p>
-  <b>Country:</b>
-  <%= invoice.country %>
-</p>
-
-<p>
-  <b>Pincode:</b>
-  <%= invoice.pincode %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= invoice.email %>
-</p>
-
-<p>
-  <b>Phone:</b>
-  <%= invoice.phone %>
-</p>
-
-<p>
-  <b>Invoice date:</b>
-  <%= invoice.invoice_date %>
-</p>
-
-<p>
-  <b>Invoice number:</b>
-  <%= invoice.invoice_number %>
-</p>
-
-<p>
-  <b>Service charge:</b>
-  <%= invoice.service_charge %>
-</p>
-
-<p>
-  <b>Service tax amount:</b>
-  <%= invoice.service_tax_amount %>
-</p>
-
-<p>
-  <b>Service tax percentage:</b>
-  <%= invoice.service_tax_percentage %>
-</p>
-
-<p>
-  <b>Total amount:</b>
-  <%= invoice.total_amount %>
-</p>
-
-<%= link_to 'Edit', edit_invoice_path(invoice) %>
+<div class='invoice_show'>
+	<p id="notice">
+		<%= notice %>
+	</p>
+	<p>
+		<b>Line1:</b>
+		<%= invoice.line1 %>
+	</p>
+	<p>
+		<b>Line2:</b>
+		<%= invoice.line2 %>
+	</p>
+	<p>
+		<b>City:</b>
+		<%= invoice.city %>
+	</p>
+	<p>
+		<b>State:</b>
+		<%= invoice.state %>
+	</p>
+	<p>
+		<b>Country:</b>
+		<%= invoice.country %>
+	</p>
+	<p>
+		<b>Pincode:</b>
+		<%= invoice.pincode %>
+	</p>
+	<p>
+		<b>Email:</b>
+		<%= invoice.email %>
+	</p>
+	<p>
+		<b>Phone:</b>
+		<%= invoice.phone %>
+	</p>
+	<p>
+		<b>Invoice date:</b>
+		<%= invoice.invoice_date %>
+	</p>
+	<p>
+		<b>Invoice number:</b>
+		<%= invoice.invoice_number %>
+	</p>
+	<% invoice.products.each do |product| %>
+	<p>
+		<b><%= product.name %></b>
+		<b><%= product.identifier %></b>
+	</p>
+	<% end %>
+	<p>
+		<b>Service charge:</b>
+		<%= invoice.service_charge %>
+	</p>
+	<p>
+		<b>Service tax amount:</b>
+		<%= invoice.service_tax_amount %>
+	</p>
+	<p>
+		<b>Service tax percentage:</b>
+		<%= invoice.service_tax_percentage %>
+	</p>
+	<p>
+		<b>Total amount:</b>
+		<%= invoice.total_amount %>
+	</p>
+	<% if local_variables.include?( :preview ) %>
+	<%= link_to 'Click to Print This Page', 'javascript:window.print()' %>
+	<% else %>
+	<%= link_to 'Edit', edit_invoice_path(invoice), :remote => true, :id => "invoice_edit_#{invoice.id}" %>
+	<%= link_to 'Send Mail', send_mail_invoice_path(invoice), :remote => true, :class => 'invoice_send_mail' %>
+	<%= link_to 'Send SMS', send_sms_invoice_path(invoice), :remote => true, :class => 'invoice_send_sms' %>
+	<%= link_to 'Print Preview', print_preview_invoice_path(invoice), :class => 'invoice_send_sms', :target=> "_blank" %>
+	<% end %>
+</div>
+<div class='invoice_edit'></div>

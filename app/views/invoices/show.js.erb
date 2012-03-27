@@ -1,0 +1,3 @@
+$(".invoice_edit").hide();
+$(".invoice_show").html("<%= escape_javascript(render(:partial => "show", :locals => { :invoice => invoice })) %>");
+$(".invoice_show").show();

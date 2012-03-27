@@ -1,0 +1,40 @@
+#wrapper {
+	width: 100%
+}
+.contentWrapper {
+	border: 1px solid;
+	padding: 5px;
+}
+#wrapper_content {
+	float: left;
+	padding: 0 10%;
+	width: 937px;
+}
+h1.invoice {
+	text-align: center;
+}
+#wrapper_content1 {
+	position: relative; /*border: 1px solid #000000;height: 12%;*/
+}
+#wrapper_content1 .child_content_left {
+	width: 450px;
+	float: left;
+	padding-left: 12px;
+}
+#wrapper_content1 .child_content_right {
+	width: 300px;
+	float: right;
+	padding-top: 5px;
+}
+#wrapper_content2 {
+	clear: both;
+	margin-top: 10px;
+	border: 1px solid #000;
+}
+.child_content_wrapper2 {
+	padding: 10px;
+	width: 500px;
+}
+#wrapper_content3 {
+	padding-top: 10px;
+}

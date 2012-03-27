@@ -23,26 +23,43 @@
 	<tr>
 		<td><%= f.label :city %></td><td><%= f.text_field :city %></td>
 	</tr>
-	<tr>
-		<td><%= f.label :state %></td><td><%= f.text_field :state %></td>
+	<!-- 	<tr>
+	<td><%= f.label :state %></td><td><%= f.text_field :state %></td>
 	</tr>
 	<tr>
-		<td><%= f.label :country %></td><td><%= f.text_field :country %></td>
+	<td><%= f.label :country %></td><td><%= f.text_field :country %></td>
 	</tr>
 	<tr>
-		<td><%= f.label :pincode %></td><td><%= f.text_field :pincode %></td>
+	<td><%= f.label :pincode %></td><td><%= f.text_field :pincode %></td>
 	</tr>
 	<tr>
-		<td><%= f.label :email %></td><td><%= f.text_field :email %></td>
+	<td><%= f.label :email %></td><td><%= f.text_field :email %></td>
 	</tr>
 	<tr>
-		<td><%= f.label :phone %></td><td><%= f.text_field :phone %></td>
+	<td><%= f.label :phone %></td><td><%= f.text_field :phone %></td>
 	</tr>
 	<tr>
-		<td><%= f.label :invoice_date %></td><td><%= f.text_field :invoice_date %></td>
+	<td><%= f.label :invoice_date %></td><td><%= f.text_field :invoice_date %></td>
 	</tr>
 	<tr>
-		<td><%= f.label :invoice_number %></td><td><%= f.text_field :invoice_number %></td>
+	<td><%= f.label :invoice_number %></td><td><%= f.text_field :invoice_number %></td>
+	</tr> -->
+	<tr>
+		<td>Products</td><td></td>
+	</tr>
+	<%= f.fields_for :invoice_product_details do |product_detail_form| %>
+	<tr>
+		<td><%= product_detail_form.object.name %>
+		<%= product_detail_form.text_field :description, :size => 15 %></td>
+		<td><%= product_detail_form.text_field :amount, :size => 5 %></td>
+		<% unless product_detail_form.object.new_record? %> 
+		<td><%= product_detail_form.label :_destroy, 'Remove:' %>
+		<%= product_detail_form.check_box :_destroy %></td>
+		<% end %>
+	</tr>
+	<% end %>
+	<tr>
+		<td></td><td class='add_product'>Add Product</td>
 	</tr>
 	<tr>
 		<td><%= f.label :service_charge %></td><td><%= f.text_field :service_charge %></td>
