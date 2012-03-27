@@ -23,7 +23,7 @@ jQuery(document).ready(function() {
 		$("#invoice-dialog-form-" + shipmentId).dialog("open");
 	});
 
-	$('.add_product').live('click', function() {
-		alert($(this).closest('tr'));
+	$('.remove_product_detail').live('click', function() {
+		$(this).closest('tr').remove();
 	});
 });

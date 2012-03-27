@@ -1,0 +1,13 @@
+<tr>
+	<td>
+		<%= select :product, :name, @products.collect{|product| [ product.name, product.id ] }, {}, { :name => 'invoice[new_product_details_attributes][][product_id]' } %>
+		<%= text_field :product, :description, :name => 'invoice[new_product_details_attributes][][description]', :size => 15 %>
+	</td>
+	
+	<td><%= text_field :product, :amount, :name => 'invoice[new_product_details_attributes][][amount]', :size => 15 %></td>
+	 
+	<td class='remove_product_detail'>
+		Remove
+	</td>
+	
+</tr>

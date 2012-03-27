@@ -99,4 +99,17 @@ class InvoicesController < ApplicationController
   def print_preview
     @invoice = Invoice.find(params[:id])
   end
+
+  def add_product_details
+    @invoice = Invoice.find(params[:id])
+
+    product_details = @invoice.invoice_product_details
+    @products = Product.exclude_product_details(product_details)
+
+    respond_to do |format|
+      format.js #{ render :locals => { :invoice => @invoice }, :layout => false }
+    end
+
+  end
+
 end

@@ -17,6 +17,11 @@ GlossyLogistics::Application.routes.draw do
       get 'send_mail'
       get 'send_sms'
       get 'print_preview'
+      get 'add_product_details'
+    end
+    
+    collection do
+      get 'add_product_details'
     end
   end
 

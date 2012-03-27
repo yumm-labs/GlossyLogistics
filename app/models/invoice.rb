@@ -22,12 +22,10 @@
 #  created_at             :datetime        not null
 #  updated_at             :datetime        not null
 #
-
 # DOC. No.
 # BE No.
 # ASS. VALUE
 # product_amount
-
 #Importer
 class Invoice < ActiveRecord::Base
   belongs_to :shipment
@@ -35,4 +33,10 @@ class Invoice < ActiveRecord::Base
   has_many :products, :through => :invoice_product_details
 
   accepts_nested_attributes_for :invoice_product_details, :allow_destroy => true
+  def new_product_details_attributes=(attrs)
+    attrs.each do |attr|
+      self.invoice_product_details << InvoiceProductDetail.new(attr)
+    end
+  end
+
 end

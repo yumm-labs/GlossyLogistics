@@ -1,0 +1,9 @@
+<tr>
+	<td><%= product_detail_form.object.name %>
+	<%= product_detail_form.text_field :description, :size => 15 %></td>
+	<td><%= product_detail_form.text_field :amount, :size => 5 %></td>
+	<% unless product_detail_form.object.new_record? %> <td><%= product_detail_form.label :_destroy, 'Remove:' %>
+	<%= product_detail_form.check_box :_destroy %></td>
+	<% end %>
+
+</tr>

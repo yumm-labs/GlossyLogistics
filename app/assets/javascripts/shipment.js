@@ -12,9 +12,9 @@ jQuery(document).ready(function() {
 		var text = $(this).find("img");
 
 		if(text.attr("src").match('iconCollapseArrow')) {
-			$(this).find("img").attr("src", 'assets\\iconExpandeArrow.gif');
+			$(this).find("img").attr("src", 'assets/iconExpandeArrow.gif');
 		} else {
-			$(this).find("img").attr("src", 'assets\\iconCollapseArrow.gif');
+			$(this).find("img").attr("src", 'assets/iconCollapseArrow.gif');
 		}
 		return false;
 	});
