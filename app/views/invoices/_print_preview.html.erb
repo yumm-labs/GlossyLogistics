@@ -1,7 +1,6 @@
 <html>
 	<head>
-		<title>Invoice</title>
-		<link href="glossy_table.css" type="text/css" rel="stylesheet" media="screen" />
+		<title>Invoice</title>		
 	</head>
 	<body>
 		<div id="wrapper">
@@ -97,7 +96,7 @@
 						</div>
 					</div>
 					<p>
-						Rupees Fifteen Thousand Six Hundred And Twenty Two Only
+						Rupees <%= invoice.grand_total.round.to_words.titleize %> Only
 						<br />
 						--------------------------------------------------------------------------------------------------------------
 						<br />

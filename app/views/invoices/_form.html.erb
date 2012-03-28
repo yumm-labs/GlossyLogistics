@@ -23,27 +23,26 @@
 	<tr>
 		<td><%= f.label :city %></td><td><%= f.text_field :city %></td>
 	</tr>
-	<!-- 	<tr>
 	<td><%= f.label :state %></td><td><%= f.text_field :state %></td>
 	</tr>
 	<tr>
-	<td><%= f.label :country %></td><td><%= f.text_field :country %></td>
+		<td><%= f.label :country %></td><td><%= f.text_field :country %></td>
 	</tr>
 	<tr>
-	<td><%= f.label :pincode %></td><td><%= f.text_field :pincode %></td>
+		<td><%= f.label :pincode %></td><td><%= f.text_field :pincode %></td>
 	</tr>
 	<tr>
-	<td><%= f.label :email %></td><td><%= f.text_field :email %></td>
+		<td><%= f.label :email %></td><td><%= f.text_field :email %></td>
 	</tr>
 	<tr>
-	<td><%= f.label :phone %></td><td><%= f.text_field :phone %></td>
+		<td><%= f.label :phone %></td><td><%= f.text_field :phone %></td>
 	</tr>
 	<tr>
-	<td><%= f.label :invoice_date %></td><td><%= f.text_field :invoice_date %></td>
+		<td><%= f.label :invoice_date %></td><td><%= f.text_field :invoice_date %></td>
 	</tr>
 	<tr>
-	<td><%= f.label :invoice_number %></td><td><%= f.text_field :invoice_number %></td>
-	</tr> -->
+		<td><%= f.label :invoice_number %></td><td><%= f.text_field :invoice_number %></td>
+	</tr>
 	<tr>
 		<td>Products</td><td></td>
 	</tr>
@@ -51,8 +50,7 @@
 	<%= render :partial => 'invoice_product_details', :locals => { :product_detail_form => product_detail_form } %>
 	<% end %>
 	<tr>
-		<% add_product_path = invoice.new_record? ? add_product_details_invoices_path : add_product_details_invoice_path(invoice) %>
-		<td></td><td class='add_product'><%= link_to 'add_product', add_product_path, :remote => true %></td>
+		<% add_product_path = invoice.new_record? ? add_product_details_invoices_path : add_product_details_invoice_path(invoice) %> <td></td><td class='add_product'><%= link_to 'add_product', add_product_path, :remote => true %></td>
 	</tr>
 	<tr>
 		<td><%= f.label :service_charge %></td><td><%= f.text_field :service_charge %></td>

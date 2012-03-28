@@ -51,6 +51,7 @@ class InvoicesController < ApplicationController
     respond_to do |format|
       if @invoice.save
         format.html { redirect_to @invoice, notice: 'Invoice was successfully created.' }
+        format.js { render 'show', :locals => { :invoice => @invoice }, :layout => false, notice: 'Invoice was successfully updated.' }
         format.json { render json: @invoice, status: :created, location: @invoice }
       else
         format.html { render action: "new" }
@@ -101,9 +102,9 @@ class InvoicesController < ApplicationController
   end
 
   def add_product_details
-    @invoice = Invoice.find(params[:id])
+    @invoice = Invoice.find_by_id(params[:id])
 
-    product_details = @invoice.invoice_product_details
+    product_details = @invoice.blank? ? [] : @invoice.invoice_product_details
     @products = Product.exclude_product_details(product_details)
 
     respond_to do |format|
