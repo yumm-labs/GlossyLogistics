@@ -40,7 +40,7 @@
     <td><%= invoice.service_charge %></td>
     <td><%= invoice.service_tax_amount %></td>
     <td><%= invoice.service_tax_percentage %></td>
-    <td><%= invoice.total_amount %></td>
+    <td><%= invoice.grand_total %></td>
     <td><%= link_to 'Show', invoice %></td>
     <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
     <td><%= link_to 'Destroy', invoice, confirm: 'Are you sure?', method: :delete %></td>

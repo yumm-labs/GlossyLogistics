@@ -9,6 +9,7 @@
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
 #
+
 class Product < ActiveRecord::Base
 
   scope :exclude_ids, lambda {|ids| where(['id NOT IN (?)', ids]) if ids.any? }

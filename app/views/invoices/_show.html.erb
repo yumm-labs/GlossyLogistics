@@ -61,8 +61,8 @@
 		<%= invoice.service_tax_percentage %>
 	</p>
 	<p>
-		<b>Total amount:</b>
-		<%= invoice.total_amount %>
+		<b>Grand Total:</b>
+		<%= invoice.grand_total %>
 	</p>
 	<% if local_variables.include?( :preview ) %>
 	<%= link_to 'Click to Print This Page', 'javascript:window.print()' %>

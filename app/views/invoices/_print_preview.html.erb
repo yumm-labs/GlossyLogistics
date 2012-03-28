@@ -72,8 +72,8 @@
 								</tr>
 								<% end %>
 								<tr>
-									<td colspan="2" align="right" height="30">TOTAL&nbsp;&nbsp;&nbsp;</td>
-									<td><%= invoice.total_amount %></td>
+									<td colspan="2" align="right" height="30"> Product Total&nbsp;&nbsp;&nbsp;</td>
+									<td><%= invoice.product_total %></td>
 								</tr>
 								<tr>
 									<td colspan="2" align="right" height="30">Service Tax <%= invoice.service_tax_percentage %>&nbsp;&nbsp;&nbsp;</td>
@@ -83,9 +83,15 @@
 									<td colspan="2" align="right" height="40">Service Charge&nbsp;&nbsp;&nbsp;</td>
 									<td><%= invoice.service_charge %></td>
 								</tr>
+
 								<tr>
-									<td colspan="2" align="right" height="40">GRAND TOTAL&nbsp;&nbsp;&nbsp;</td>
-									<td><%= invoice.total_amount %></td>
+									<td colspan="2" align="right" height="40">Sub Total&nbsp;&nbsp;&nbsp;</td>
+									<td><%= invoice.service_charge + invoice.service_tax_amount %></td>
+								</tr>
+								
+								<tr>
+									<td colspan="2" align="right" height="40">Grand Total&nbsp;&nbsp;&nbsp;</td>
+									<td><%= invoice.grand_total %></td>
 								</tr>
 							</table>
 						</div>
