@@ -7,4 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-mode_of_transports = ModeOfTransport.create([{name: 'AirLine'},{name: 'Vessel'}])
+ModeOfTransport.create([{name: 'AirLine'}, {name: 'Vessel'}])
+Status.create([{name: 'Not Shipped'}, {name: 'Shipped'}, {name: 'Delivered'}, {name: 'Closed'}])
