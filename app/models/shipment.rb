@@ -29,14 +29,29 @@ class Shipment < ActiveRecord::Base
   belongs_to :user
   has_one :invoice
   belongs_to :transport, :polymorphic => true
-  belongs_to :status 
-  belongs_to :destination 
+  belongs_to :status
+  belongs_to :destination
   belongs_to :industry
-
   def current_status
     self.status.name
   end
-  
+
   validates :status, :presence => true
+
+  def self.prepare_industry(args)
+
+    unless args[:industry_id].blank?
+      args[:industry_id] = args[:industry_id].first if args[:industry_id].is_a? Array
+    end
+
+    unless Industry.exists?(args[:industry_id])
+      args[:new_industry_name] = args[:industry_id]
+      args[:industry_id] = nil
+    end
+  end
+
+  def new_industry_name=(name)
+    self.build_industry(:name => name)
+  end
 
 end

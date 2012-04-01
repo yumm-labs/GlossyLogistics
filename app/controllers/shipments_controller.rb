@@ -41,7 +41,14 @@ class ShipmentsController < ApplicationController
   # POST /shipments.json
   def create
     shipment_args = params[:shipment].clone
-    shipment_args[:industry_id] = shipment_args[:industry_id].first unless shipment_args[:industry_id].blank?
+    
+    Shipment.prepare_industry(shipment_args)
+    
+    # unless Industry.exists?(shipment_args[:industry_id])
+      # shipment_args[:new_industry_name] = shipment_args[:industry_id]
+      # shipment_args[:industry_id] = nil
+    # end
+
     shipment_args[:destination_id] = shipment_args[:destination_id].first unless shipment_args[:destination_id].blank?
 
     @shipment = Shipment.new(shipment_args)
