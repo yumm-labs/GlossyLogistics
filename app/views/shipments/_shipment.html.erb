@@ -1,25 +1,17 @@
 <li id="<%= shipment.id %>" class="list_items">
 	<table class="shipping_details" id="shipping_row_<%= shipment.id %>" border='0' cellpadding='10' cellspacing="2">
 		<tr>
-			<td class="sort_items"><img src='assets/move1.jpg' alt='Move'/></td>
-			<td class="expand"><a href="javascript:void(0);"> <img src='assets/iconExpandeArrow.gif' alt='Expand'/> </a></td>
-			<td><%= shipment.no_of_pkgs %></td>
-			<td><%= shipment.invoice_reference %></td>
+			<td class="sort_items handle_width"><img src='assets/move1.jpg' alt='Move'/></td>
+			<td class="expand handle_width"><a href="javascript:void(0);"> <img src='assets/iconExpandeArrow.gif' alt='Expand'/> </a></td>
+
+
+			<td class='shipment_desc_width'><%= shipment.transport_type %></td>
 			<td><%= shipment.goods_description %></td>
-			<td><%= shipment.mawb_mbl_no %></td>
-			<td><%= shipment.hawb_hbl_no %></td>
-			<td><%= shipment.agent %></td>
-			<td><%= shipment.transport_type %></td>
-			<!-- <td><%= shipment.cargo_receipt_date %></td> -->
-			<td><%= shipment.created_at.strftime('%d, %B, %Y') %></td>
-			<td><%= shipment.job_no %></td>
-			<td class="invoice">Invoice</td>
-			<td><%= link_to 'Destroy', shipment, confirm: 'Are you sure?', method: :delete %></td>
-			<!-- 			<td height="10">item12</td>
-			<td height="10">item13</td>
-			<td height="10">item14</td>
-			<td height="10">item15</td> -->
-		</tr>	
+			<td class='shipment_date_width'><%= shipment.current_status %></td>
+			<td class='shipment_date_width'><%= shipment.created_at.strftime('%d, %B, %Y') %></td>
+			<td class="invoice shipment_desc_width">Invoice</td>
+			<td class='shipment_desc_width'><%= link_to 'Destroy', shipment, confirm: 'Are you sure?', method: :delete %></td>
+		</tr>
 	</table>
 	<div class="shipping_row_expand" id="shipping_row_expand_<%= shipment.id %>">
 		<div class="expand_panel">

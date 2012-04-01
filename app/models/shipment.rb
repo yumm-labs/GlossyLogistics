@@ -23,11 +23,20 @@
 #  status_id            :integer
 #  destination_id       :integer
 #
-
 # bundle exec annotate -s --exclude tests,fixtures
 class Shipment < ActiveRecord::Base
 
-  belongs_to :transport, :polymorphic => true
+  belongs_to :user
   has_one :invoice
+  belongs_to :transport, :polymorphic => true
+  belongs_to :status 
+  belongs_to :destination 
+  belongs_to :industry
+
+  def current_status
+    self.status.name
+  end
+  
+  validates :status, :presence => true
 
 end

@@ -40,10 +40,10 @@ class ShipmentsController < ApplicationController
   # POST /shipments
   # POST /shipments.json
   def create
-    shipment_args = params[:shipment].clone 
-    shipment_args[:industry_id] = shipment_args[:industry_id].first
-    shipment_args[:destination_id] = shipment_args[:destination_id].first
-    
+    shipment_args = params[:shipment].clone
+    shipment_args[:industry_id] = shipment_args[:industry_id].first unless shipment_args[:industry_id].blank?
+    shipment_args[:destination_id] = shipment_args[:destination_id].first unless shipment_args[:destination_id].blank?
+
     @shipment = Shipment.new(shipment_args)
 
     respond_to do |format|
@@ -84,10 +84,8 @@ class ShipmentsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
-  
-  
-   def search_by_industry_name
+
+  def search_by_industry_name
     @indus =   Industry.where("name ilike ?", "%#{params[:tag]}%").select("id,name")
     industries = []
     @indus.each do |a|
@@ -97,7 +95,7 @@ class ShipmentsController < ApplicationController
       format.json { render json: industries.to_json }
     end
   end
-  
+
   def search_by_destination_name
     @des =   Destination.where("name ilike ?", "%#{params[:tag]}%").select("id,name")
     destinations = []
@@ -108,5 +106,5 @@ class ShipmentsController < ApplicationController
       format.json { render json: destinations.to_json }
     end
   end
-  
+
 end
