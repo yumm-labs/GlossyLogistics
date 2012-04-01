@@ -4,11 +4,10 @@
 			<td class="sort_items handle_width"><img src='assets/move1.jpg' alt='Move'/></td>
 			<td class="expand handle_width"><a href="javascript:void(0);"> <img src='assets/iconExpandeArrow.gif' alt='Expand'/> </a></td>
 
-
 			<td class='shipment_desc_width'><%= shipment.transport_type %></td>
 			<td><%= shipment.goods_description %></td>
 			<td class='shipment_date_width'><%= shipment.current_status %></td>
-			<td class='shipment_date_width'><%= shipment.created_at.strftime('%d, %B, %Y') %></td>
+			<td class='shipment_date_width'><%= shipment.created_at.strftime('%d %B, %Y') %></td>
 			<td class="invoice shipment_desc_width">Invoice</td>
 			<td class='shipment_desc_width'><%= link_to 'Destroy', shipment, confirm: 'Are you sure?', method: :delete %></td>
 		</tr>

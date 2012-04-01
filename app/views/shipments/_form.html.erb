@@ -11,88 +11,84 @@
 	</ul>
 </div>
 <% end %>
-
-<% if @shipment.class == Import %>
-<div class="field">
-	<%= f.label :igm_no %>
-	<%= f.number_field :igm_no %>
-</div>
-<div class="field">
-	<%= f.label :igm_date %>
-	<%= f.date_select :igm_date %>
-</div>
-<% end %>
-
-<div class="field">
-	<%= label :shipment, :transport_type %>
-	<%= select :shipment, :transport_type, [['Import', 'Import'], ['Export', 'Export']] %>
-</div>
-
-
-<div class="field">
-	<%= label :shipment, :industry_id %>
-	<%= collection_select :shipment, :industry_id, Industry.all, 'id', 'name' %>
-</div>
-<div class="field">
-	<%= label :shipment, :user_id %>
-	<%= collection_select :shipment, :user_id, User.all, 'id', 'name' %>
-</div>
-<div class="field">
-	<%= label :shipment,:mode_of_transport %>
-	<%= collection_select :shipment, :mode_of_transport_id, ModeOfTransport.all, 'id', 'name'%>
-</div>
-<div class="field">
-	<%= label :shipment, :destination_id %>
-	<%= collection_select :shipment, :destination_id, Destination.all, 'id', 'name' %>
-</div>
-<div class="field">
-	<%= f.label :number_of_pkgs %>
-	<%= f.text_field :no_of_pkgs %>
-</div>
-<div class="field">
-	<%= f.label :invoice_reference %>
-	<%= f.text_field :invoice_reference %>
-</div>
-<div class="field">
-	<%= f.label :goods_description %>
-	<%= f.text_area :goods_description, :rows => 2, :cols => 40 %>
-</div>
-<div class="field">
-	<%= f.label "MAWB MBL No" %>
-	<%= f.text_field :mawb_mbl_no %>
-</div>
-<div class="field">
-	<%= f.label "HAWB HBL No" %>
-	<%= f.text_field :hawb_hbl_no %>
-</div>
-<div class="field">
-	<%= f.label :agent %>
-	<%= f.text_field :agent %>
-</div>
-<div class="field">
-	<%= f.label :bill_no %>
-	<%= f.text_field :bill_no %>
-</div>
-<div class="field">
-	<%= f.label :bill_date %>
-	<%= f.date_select :bill_date %>
-</div>
-<div class="field">
-	<%= f.label :cargo_receipt_date %>
-	<%= f.date_select :cargo_receipt_date %>
-</div>
-<div class="field">
-	<%= f.label :job_no %>
-	<%= f.number_field :job_no %>
-</div>
-<div class="field">
-	<%= label :shipment, :status_id %>
-	<%= collection_select :shipment, :status_id, Status.all, 'id', 'name' %>
-</div>
-
-<%= f.submit %>
-</div>
-<% end %>
+<table>
+	<% if @shipment.class == Import %>
+	<tr>
+		<td> <%= f.label :igm_no %></td><td> <%= f.number_field :igm_no %> </td>
+	</tr>
+	<tr>
+		<td> <%= f.label :igm_date %></td><td> <%= f.date_select :igm_date %> </td>
+	</tr>
+	<% end %>
+	<tr>
+		<td> <%= label :shipment, :transport_type %></td>
+		<td> <%= select :shipment, :transport_type, [['Import', 'Import'], ['Export', 'Export']] %> </td>
+	</tr>
+	<tr>
+		<td> <%= label :shipment, :industry_id %></td>
+		<td> <%= collection_select :shipment, :industry_id, Industry.all, 'id', 'name' %> </td>
+	</tr>
+	<tr>
+		<td> <%= label :shipment, :user_id %></td>
+		<td> <%= collection_select :shipment, :user_id, User.all, 'id', 'name' %> </td>
+	</tr>
+	<tr>
+		<td> <%= label :shipment,:mode_of_transport %></td>
+		<td> <%= collection_select :shipment, :mode_of_transport_id, ModeOfTransport.all, 'id', 'name'%> </td>
+	</tr>
+	<tr>
+		<td> <%= label :shipment, :destination_id %></td>
+		<td> <%= collection_select :shipment, :destination_id, Destination.all, 'id', 'name' %> </td>
+	</tr>
+	<tr>
+		<td> <%= f.label :number_of_pkgs %></td>
+		<td> <%= f.text_field :no_of_pkgs %> </td>
+	</tr>
+	<tr>
+		<td> <%= f.label :invoice_reference %></td>
+		<td> <%= f.text_field :invoice_reference %> </td>
+	</tr>
+	<tr>
+		<td> <%= f.label :goods_description %></td>
+		<td> <%= f.text_area :goods_description, :rows => 2, :cols => 40 %> </td>
+	</tr>
+	<tr>
+		<td> <%= f.label "MAWB MBL No" %></td>
+		<td> <%= f.text_field :mawb_mbl_no %> </td>
+	</tr>
+	<tr>
+		<td> <%= f.label "HAWB HBL No" %></td>
+		<td> <%= f.text_field :hawb_hbl_no %> </td>
+	</tr>
+	<tr>
+		<td> <%= f.label :agent %></td>
+		<td> <%= f.text_field :agent %> </td>
+	</tr>
+	<tr>
+		<td> <%= f.label :bill_no %></td>
+		<td> <%= f.text_field :bill_no %> </td>
+	</tr>
+	<tr>
+		<td> <%= f.label :bill_date %></td>
+		<td> <%= f.date_select :bill_date %> </td>
+	</tr>
+	<tr>
+		<td> <%= f.label :cargo_receipt_date %></td>
+		<td> <%= f.date_select :cargo_receipt_date %> </td>
+	</tr>
+	<tr>
+		<td> <%= f.label :job_no %></td>
+		<td> <%= f.number_field :job_no %> </td>
+	</tr>
+	<tr>
+		<td> <%= label :shipment, :status_id %></td>
+		<td> <%= collection_select :shipment, :status_id, Status.all, 'id', 'name' %> </td>
+	</tr>
+	<tr>
+		<td> <%= f.submit %> </td>
+	</tr>
+	<% end %>
+</table>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#shipment_industry_id").fcbkcomplete({

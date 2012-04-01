@@ -12,7 +12,6 @@
 	border: 1px solid #888;
 	width: 393px;
 	height: 200px;
-	background: #989898;
 }
 .shipping_row_expand {
 	display: none;
@@ -25,7 +24,7 @@
 	cursor: move;
 }
 body {
-	font-size: 62.5%;
+	font-size: 75%;
 }
 label, input {
 	display: block;
@@ -66,15 +65,21 @@ div#users-contain table td, div#users-contain table th {
 	padding: 0.3em;
 }
 .handle_width {
-	width: 3%;
-}
-.handle_width {
-	width: 3%;
+	width: 5%;
 }
 .shipment_desc_width {
 	width: 5%;
 }
-
 .shipment_date_width {
-	width: 17%;
+	width: 20%;
+}
+div.shipment_form {
+	margin-left: 150px;
+}
+
+
+
+table.shipment_header {
+	margin-left: 40px;
+	width: 65%;
 }
