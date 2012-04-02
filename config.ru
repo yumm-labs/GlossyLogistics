@@ -2,4 +2,6 @@
 
 require ::File.expand_path('../config/environment',  __FILE__)
 run GlossyLogistics::Application
-$stdout.sync = true
+
+# Added for heroku
+$stdout.sync = true  

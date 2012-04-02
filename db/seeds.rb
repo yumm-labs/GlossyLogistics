@@ -9,3 +9,4 @@
 
 ModeOfTransport.create([{name: 'AirLine'}, {name: 'Vessel'}])
 Status.create([{name: 'Not Shipped'}, {name: 'Shipped'}, {name: 'Delivered'}, {name: 'Closed'}])
+Product.create([{name: 'Product1', identifier: 'P1'}, {name: 'Product2', identifier: 'P2'}, {name: 'Product3', identifier: 'P3'}, {name: 'Product4', identifier: 'P4'}])
