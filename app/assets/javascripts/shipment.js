@@ -1,5 +1,7 @@
 jQuery(document).ready(function() {
 
+	
+
 	//This is to expand
 	$(".shipping_details .expand a").click(function() {
 		var id = $(this).parents("table.shipping_details").attr("id");
@@ -45,4 +47,51 @@ jQuery(document).ready(function() {
 		}
 	});
 
+	$("#shipment_industry_id").fcbkcomplete({
+		json_url : "/shipments/search_by_industry_name",
+		addontab : true,
+		maxitems : 1,
+		input_min_size : 0,
+		height : 10,
+		cache : true,
+		newel : true,
+		select_all_text : "select",
+	});
+
+	$("#shipment_destination_id").fcbkcomplete({
+		json_url : "/shipments/search_by_destination_name",
+		addontab : true,
+		maxitems : 1,
+		input_min_size : 0,
+		height : 10,
+		cache : true,
+		newel : true,
+		select_all_text : "select",
+	});
+	
+	
+	$("#industry-form").dialog({
+		autoOpen : false,
+		height : 300,
+		width : 500,
+		modal : true,
+		// buttons : {
+		// Save : function() {
+		// alert('save clicked');
+		// },
+		// Cancel : function() {
+		// $(this).dialog("close");
+		// }
+		// },
+		close : function() {
+			allFields.val("").removeClass("ui-state-error");
+		}
+	});
+
+	$('#add_industry').click(function() {
+		$('#new_industry').find('tr.field td input, tr.field textarea').attr('value','')
+		$("#industry-form").dialog("open");
+	});
+
+	
 });

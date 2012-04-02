@@ -1,33 +1,24 @@
-<%= form_for(@industry) do |f| %>
-  <% if @industry.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@industry.errors.count, "error") %> prohibited this industry from being saved:</h2>
-
-      <ul>
-      <% @industry.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :owner_id %><br />
-    <%= f.number_field :owner_id %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<%= form_for(@industry, :remote => true) do |f| %> <div id="industry_error_explanation"></div>
+<table>
+	<tr class='field'>
+		<td> <%= f.label :name %></td>
+		<td> <%= f.text_field :name %> </td>
+	</tr>
+	<tr class='field'>
+		<td> <%= f.label :owner_id %></td>
+		<td> <%= f.number_field :owner_id %> </td>
+	</tr>
+	<tr class='field'>
+		<td> <%= f.label :description %></td>
+		<td> <%= f.text_area :description, :rows => 3, :cols => 30 %> </td>
+	</tr>
+	<tr class='field'>
+		<td> <%= f.label :address %></td>
+		<td> <%= f.text_area :address, :rows => 3, :cols => 30 %> </td>
+	</tr>
+	<tr>
+		<td></td>
+		<td class="actions"> <%= f.submit %> </td>
+	</tr>
+</table>
+<% end %> 

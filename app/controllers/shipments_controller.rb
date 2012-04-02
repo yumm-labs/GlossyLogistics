@@ -2,7 +2,7 @@ class ShipmentsController < ApplicationController
   # GET /shipments
   # GET /shipments.json
   def index
-    @shipments = Shipment.all
+    @shipments = Shipment.order('id DESC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,7 +25,8 @@ class ShipmentsController < ApplicationController
   # GET /shipments/new.json
   def new
     @shipment = Shipment.new
-
+    @industry = Industry.new
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @shipment }
@@ -55,7 +56,7 @@ class ShipmentsController < ApplicationController
 
     respond_to do |format|
       if @shipment.save
-        format.html { redirect_to @shipment, notice: 'Shipment was successfully created.' }
+        format.html { redirect_to root_url, notice: 'Shipment was successfully created.' }
         format.json { render json: @shipment, status: :created, location: @shipment }
       else
         format.html { render action: "new" }

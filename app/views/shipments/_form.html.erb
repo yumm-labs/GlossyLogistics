@@ -27,6 +27,7 @@
 	<tr>
 		<td> <%= label :shipment, :industry_id %></td>
 		<td> <%= collection_select :shipment, :industry_id, Industry.all, 'id', 'name' %> </td>
+		<td id='add_industry'>Add Industry</td>
 	</tr>
 	<tr>
 		<td> <%= label :shipment, :user_id %></td>
@@ -89,31 +90,7 @@
 	</tr>
 	<% end %>
 </table>
-<script type="text/javascript">
-	$(document).ready(function() {
-		$("#shipment_industry_id").fcbkcomplete({
-			json_url : "/shipments/search_by_industry_name",
-			addontab : true,
-			maxitems : 10,
-			input_min_size : 0,
-			height : 10,
-			cache : true,
-			newel : true,
-			select_all_text : "select",
-		});
-	});
 
-	$(document).ready(function() {
-		$("#shipment_destination_id").fcbkcomplete({
-			json_url : "/shipments/search_by_destination_name",
-			addontab : true,
-			maxitems : 10,
-			input_min_size : 0,
-			height : 10,
-			cache : true,
-			newel : true,
-			select_all_text : "select",
-		});
-	});
-
-</script>
+<div id='industry-form'>
+	<%= render :partial => 'industries/form' %>
+</div>
