@@ -24,7 +24,7 @@ class IndustriesController < ApplicationController
   # GET /industries/new
   # GET /industries/new.json
   def new
-    @industry = Industry.new
+    @industry = Industry.new( :representative => User.new )
 
     respond_to do |format|
       format.html # new.html.erb

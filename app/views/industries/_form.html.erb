@@ -5,17 +5,32 @@
 		<td> <%= f.text_field :name %> </td>
 	</tr>
 	<tr class='field'>
-		<td> <%= f.label :owner_id %></td>
-		<td> <%= f.number_field :owner_id %> </td>
+		<td> <%= f.label :description %></td>
+		<td> <%= f.text_area :description, :rows => 3, :cols => 28 %> </td>
 	</tr>
 	<tr class='field'>
-		<td> <%= f.label :description %></td>
-		<td> <%= f.text_area :description, :rows => 3, :cols => 30 %> </td>
+		<td> <%= f.label :email %></td>
+		<td> <%= f.number_field :email %> </td>
+	</tr>
+	<tr class='field'>
+		<td> <%= f.label :office_phone %></td>
+		<td> <%= f.number_field :office_phone %> </td>
 	</tr>
 	<tr class='field'>
 		<td> <%= f.label :address %></td>
-		<td> <%= f.text_area :address, :rows => 3, :cols => 30 %> </td>
+		<td> <%= f.text_area :address, :rows => 3, :cols => 28 %> </td>
 	</tr>
+	<%= f.fields_for :representative do |user| %>
+	<tr class='field'>
+		<td> <%= user.label 'Representative Name' %></td><td><%= user.text_field :name %> </td>
+	</tr>
+	<tr class='field'>
+		<td> <%= user.label 'Representative Email' %></td><td><%= user.text_field :email %> </td>
+	</tr>
+	<tr class='field'>
+		<td> <%= user.label 'Representative Phone' %></td><td><%= user.text_field :phone %> </td>
+	</tr>
+	<% end %>
 	<tr>
 		<td></td>
 		<td class="actions"> <%= f.submit %> </td>

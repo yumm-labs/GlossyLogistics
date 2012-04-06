@@ -5,7 +5,7 @@
 #  id          :integer         not null, primary key
 #  invoice_id  :integer         indexed
 #  product_id  :integer         indexed
-#  amount      :integer
+#  amount      :float           default(0.0)
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
 #  description :string(255)

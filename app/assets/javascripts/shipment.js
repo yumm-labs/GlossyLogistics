@@ -72,7 +72,7 @@ jQuery(document).ready(function() {
 	
 	$("#industry-form").dialog({
 		autoOpen : false,
-		height : 300,
+		height : 400,
 		width : 500,
 		modal : true,
 		// buttons : {

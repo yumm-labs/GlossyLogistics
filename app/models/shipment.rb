@@ -23,7 +23,7 @@
 #  status_id            :integer
 #  destination_id       :integer
 #
-# bundle exec annotate -s --exclude tests,fixtures
+
 class Shipment < ActiveRecord::Base
 
   belongs_to :user

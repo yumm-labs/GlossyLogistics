@@ -15,14 +15,15 @@
 #  pincode                :string(255)
 #  invoice_date           :date
 #  invoice_number         :integer
-#  service_charge         :float
-#  service_tax_amount     :float
-#  service_tax_percentage :float
+#  service_charge         :float           default(0.0)
+#  service_tax_amount     :float           default(0.0)
+#  service_tax_percentage :float           default(0.0)
 #  created_at             :datetime        not null
 #  updated_at             :datetime        not null
-#  product_total          :float
-#  grand_total            :float
+#  product_total          :float           default(0.0)
+#  grand_total            :float           default(0.0)
 #
+
 class Invoice < ActiveRecord::Base
   belongs_to :shipment
   has_many :invoice_product_details
