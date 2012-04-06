@@ -90,7 +90,8 @@
 	</tr>
 	<% end %>
 </table>
-
+<% if @shipment.new_record? %>
 <div id='industry-form'>
 	<%= render :partial => 'industries/form' %>
 </div>
+<% end %> 
