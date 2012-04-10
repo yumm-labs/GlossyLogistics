@@ -25,7 +25,7 @@ class ShipmentsController < ApplicationController
   # GET /shipments/new.json
   def new
     @shipment = Shipment.new
-    @industry = Industry.new
+    @industry = Industry.new( :representative => User.new )
     
     respond_to do |format|
       format.html # new.html.erb

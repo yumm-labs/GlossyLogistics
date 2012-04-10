@@ -17,4 +17,8 @@
 
 class User < ActiveRecord::Base
   belongs_to :industry
+  
+  validates :name, :presence => true, :length => { :minimum => 3, :maximum => 30 }
+  validates :email, :uniqueness => true, :allow_blank => true
+  
 end

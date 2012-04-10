@@ -1,1 +1,9 @@
-$("#industry_error_explanation").html("<%= message %>");
+<% if status %>
+$("#notice").html("<%= message %>");
+$("#industry-form").dialog("close");
+<% else %>
+$("#industry_error_explanation").html("");
+<% @industry.errors.to_a.collect do |i| %>
+$("#industry_error_explanation").append("<li><%= i %></li>");
+<% end %>
+<% end %> 

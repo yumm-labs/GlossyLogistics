@@ -3,7 +3,6 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Owner</th>
     <th>Description</th>
     <th>Address</th>
     <th></th>
@@ -14,7 +13,6 @@
 <% @industries.each do |industry| %>
   <tr>
     <td><%= industry.name %></td>
-    <td><%= industry.owner_id %></td>
     <td><%= industry.description %></td>
     <td><%= industry.address %></td>
     <td><%= link_to 'Show', industry %></td>

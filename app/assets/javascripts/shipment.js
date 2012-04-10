@@ -89,6 +89,7 @@ jQuery(document).ready(function() {
 	});
 
 	$('#add_industry').click(function() {
+		$("#industry_error_explanation").html("");
 		$('#new_industry').find('tr.field td input, tr.field textarea').attr('value','')
 		$("#industry-form").dialog("open");
 	});

@@ -45,11 +45,11 @@ class IndustriesController < ApplicationController
     respond_to do |format|
       if @industry.save
         format.html { redirect_to @industry, notice: 'Industry was successfully created.' }
-        format.js { render :locals => { :message => %Q{Industry "#{@industry.name}" was successfully created.} } }
+        format.js { render :locals => { :message => %Q{Industry "#{@industry.name}" was successfully created.}, status: true } }
         format.json { render json: @industry, status: :created, location: @industry }
       else
         format.html { render action: "new" }
-        format.js { render :locals => { :message => "Unable to create industry" } }
+        format.js { render :locals => { :message => "Unable to create industry", status: false } }
         format.json { render json: @industry.errors, status: :unprocessable_entity }
       end
     end

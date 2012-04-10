@@ -1,4 +1,4 @@
-<%= form_for(@industry, :remote => true) do |f| %> <div id="industry_error_explanation"></div>
+<%= form_for(@industry, :remote => true) do |f| %> <ul id="industry_error_explanation"></ul>
 <table>
 	<tr class='field'>
 		<td> <%= f.label :name %></td>
@@ -20,20 +20,23 @@
 		<td> <%= f.label :address %></td>
 		<td> <%= f.text_area :address, :rows => 3, :cols => 28 %> </td>
 	</tr>
-	<%= f.fields_for :representative do |user| %>
+	<%= f.fields_for :representative, @industry.representative do |user| %>
 	<tr class='field'>
-		<td> <%= user.label 'Representative Name' %></td><td><%= user.text_field :name %> </td>
+		<td> <%= user.label 'Representative Name' %></td>
+		<td><%= user.text_field :name %> </td>
 	</tr>
 	<tr class='field'>
-		<td> <%= user.label 'Representative Email' %></td><td><%= user.text_field :email %> </td>
+		<td> <%= user.label 'Representative Email' %></td>
+		<td><%= user.text_field :email %> </td>
 	</tr>
 	<tr class='field'>
-		<td> <%= user.label 'Representative Phone' %></td><td><%= user.text_field :phone %> </td>
+		<td> <%= user.label 'Representative Phone' %></td>
+		<td><%= user.text_field :phone %> </td>
 	</tr>
 	<% end %>
 	<tr>
 		<td></td>
-		<td class="actions"> <%= f.submit %> </td>
+		<td class="action1s"> <%= f.submit %> </td>
 	</tr>
 </table>
 <% end %> 
