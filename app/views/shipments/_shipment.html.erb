@@ -1,9 +1,8 @@
-<li id="<%= shipment.id %>" class="list_items">
+<li id="shipment_<%= shipment.id %>" class="shipment_list">
 	<table class="shipping_details" id="shipping_row_<%= shipment.id %>" border='0' cellpadding='10' cellspacing="2">
 		<tr>
 			<td class="sort_items handle_width"><img src='assets/move1.jpg' alt='Move'/></td>
 			<td class="expand handle_width"><a href="javascript:void(0);"> <img src='assets/iconExpandeArrow.gif' alt='Expand'/> </a></td>
-
 			<td class='shipment_desc_width'><%= shipment.transport_type %></td>
 			<td><%= shipment.goods_description %></td>
 			<td class='shipment_date_width'><%= shipment.current_status %></td>
@@ -13,11 +12,10 @@
 		</tr>
 	</table>
 	<div class="shipping_row_expand" id="shipping_row_expand_<%= shipment.id %>">
-		<div class="expand_panel">
-			<p>
-				<% @shipment = shipment %>
-				<%= render 'form' unless shipment.blank? %>
-			</p>
+		
+		<div class="expand_panel_old shipment_form_outer">
+			<% @shipment = shipment %>
+			<%= render 'form' unless shipment.blank? %>
 		</div>
 	</div>
 	<div class="invoice-dialog-form" id="invoice-dialog-form-<%= shipment.id %>" title="Invoice">
@@ -30,4 +28,5 @@
 		<%= render :partial => 'invoices/show', :locals => { :invoice => shipment.invoice } %>
 		<% end %>
 	</div>
+	<%= content_tag :div, nil, :class => 'notice' %>
 </li>

@@ -73,9 +73,11 @@ class ShipmentsController < ApplicationController
     respond_to do |format|
       if @shipment.update_attributes(params[:shipment])
         format.html { redirect_to @shipment, notice: 'Shipment was successfully updated.' }
+        format.js
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
+        format.js
         format.json { render json: @shipment.errors, status: :unprocessable_entity }
       end
     end

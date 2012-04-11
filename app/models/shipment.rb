@@ -54,4 +54,8 @@ class Shipment < ActiveRecord::Base
     self.build_industry(:name => name)
   end
 
+  def industry_name
+    self.industry and self.industry.name
+  end
+
 end

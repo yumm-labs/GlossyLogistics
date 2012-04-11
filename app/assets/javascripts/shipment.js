@@ -20,6 +20,7 @@ jQuery(document).ready(function() {
 		}
 		return false;
 	});
+	
 	//This is to sort the shipment
 	$("#shipping_sort").sortable({
 		handle : '.sort_items',

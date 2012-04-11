@@ -1,4 +1,5 @@
-<%= form_for(@shipment) do |f| %>
+<%= form_for(@shipment, :remote => !@shipment.new_record?) do |f| %>
+
 <% if @shipment.errors.any? %>
 <div id="error_explanation">
 	<h2><%= pluralize(@shipment.errors.count, "error") %> prohibited this import from being saved:</h2>
@@ -10,10 +11,7 @@
 		<% end %>
 	</ul>
 </div>
-<% end %>
-
-<p id='notice'></p>
-
+<% end %> <p id='notice'></p>
 <table>
 	<% if @shipment.class == Import %>
 	<tr>
@@ -25,12 +23,18 @@
 	<% end %>
 	<tr>
 		<td> <%= label :shipment, :transport_type %></td>
-		<td> <%= select :shipment, :transport_type, [['Import', 'Import'], ['Export', 'Export']] %> </td>
+		<% if @shipment.new_record? %> <td> <%= select :shipment, :transport_type, [['Import', 'Import'], ['Export', 'Export']] %> </td>
+		<% else %>
+		<%= content_tag :td, @shipment.transport_type %>
+		<% end %>
 	</tr>
 	<tr>
 		<td> <%= label :shipment, :industry_id %></td>
-		<td> <%= collection_select :shipment, :industry_id, Industry.all, 'id', 'name' %> </td>
+		<% if @shipment.new_record? %> <td> <%= collection_select :shipment, :industry_id, Industry.all, 'id', 'name' %> </td>
 		<td id='add_industry'>Add Industry</td>
+		<% else %>
+		<%= content_tag :td, @shipment.industry_name %>
+		<% end %>
 	</tr>
 	<tr>
 		<td> <%= label :shipment, :user_id %></td>
@@ -46,7 +50,7 @@
 	</tr>
 	<tr>
 		<td> <%= f.label :number_of_pkgs %></td>
-		<td> <%= f.text_field :no_of_pkgs %> </td>
+		<td> <%= f.text_field :no_of_pkgs, { :type => :number } %> </td>
 	</tr>
 	<tr>
 		<td> <%= f.label :invoice_reference %></td>

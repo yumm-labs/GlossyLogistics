@@ -1,0 +1,5 @@
+$("#shipment_<%= @shipment.id %> .shipment_form_outer").html("<%= escape_javascript( render('form') ) %>");
+<% if @shipment.errors.blank? %>
+$("#shipping_row_expand_<%= @shipment.id %>").slideToggle("slow");
+$("#shipment_<%= @shipment.id %> .notice").html('Shipment was successfully updated.');
+<% end %>

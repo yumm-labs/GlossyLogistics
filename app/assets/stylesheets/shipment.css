@@ -122,9 +122,12 @@ ul#industry_error_explanation {
 	color: red;
 	list-style: none;
 }
-#notice {
+#notice, .shipment_list .notice {
 	color: green;
 }
 #error_explanation {
 	color: red;
+}
+tr td ul.holder {
+	width: 180px !important;
 }
