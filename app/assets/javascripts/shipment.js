@@ -1,7 +1,5 @@
 jQuery(document).ready(function() {
 
-	
-
 	//This is to expand
 	$(".shipping_details .expand a").click(function() {
 		var id = $(this).parents("table.shipping_details").attr("id");
