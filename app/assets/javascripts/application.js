@@ -4,13 +4,9 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
-//= require jquery
-//= require jquery-ui
 //= require jquery_ujs
-//= require jquery.min.js
-//= require jquery-ui.min.js
-//= require jquery.fcbkcomplete.js
-//= require autocomplete-rails.js
-//= require invoice.js
-//= require shipment.js
-//= require_tree .
+//= require jquery-ui
+//= require jquery.fcbkcomplete
+//= require autocomplete-rails
+//= require invoice
+//= require shipment

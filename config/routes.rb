@@ -34,6 +34,11 @@ GlossyLogistics::Application.routes.draw do
 
   resources :shipments
 
+  match 'services' => 'home#services'
+  match 'contact_us' => 'home#contact_us'
+  match 'about_us' => 'home#about_us'
+  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -83,7 +88,8 @@ GlossyLogistics::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'shipments#index'
+  # root :to => 'shipments#index'
+    root :to => 'home#index'
 
 # See how all your routes lay out with "rake routes"
 

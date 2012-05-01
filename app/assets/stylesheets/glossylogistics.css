@@ -1,0 +1,98 @@
+/*
+ *= require_self
+ *= require css_1
+ *= require css_2
+ *= require css_3
+ *= require css_4
+ */
+
+#logo a {
+	position: absolute;
+}
+#caption {
+	font-size: 15px;
+	margin: 75px 0 0 325px;
+	color: white;
+	position: absolute;
+}
+#content-wrapper {
+	font-size: 1.35em;
+	margin-top: 20px !important;
+	text-align: justify;
+}
+.snowflake {
+	position: fixed;
+	color: #FFFFFF;
+}
+.contact_us_data {
+	float: right;
+	font-family: 'Segoe UI';
+	font-size: large;
+}
+.glossy_name {
+	font-size: 1.25em;
+}
+.sf-menu a:hover {
+	border-bottom: 0.17em solid #176092;
+}
+#carousel-nav .active {
+
+}
+#header {
+	height: 130px;
+}
+/*======Slider=======*/
+
+#slider-wrapper {
+	padding: 20px 65px;
+	width: 833px !important;
+}
+#slider-wrapper ul, #slider-wrapper li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#slider-wrapper li {
+	float: left;
+	list-style: none outside none;
+	height: 241px;
+	width: 845px;
+	overflow: hidden;
+}
+#prevBtn, #nextBtn {
+	display: block;
+	width: 30px;
+	height: 77px;
+	position: absolute;
+	left: 11px;
+	top: 100px;
+}
+/*#nextBtn {
+ left: 696px;
+ }*//*#prevBtn a, #nextBtn a {
+ display: block;
+ width: 30px;
+ height: 77px;
+ background: url(images/btn_prev.gif) no-repeat 0 0;
+ }
+ #nextBtn a {
+ background: url(images/btn_next.gif) no-repeat 0 0;
+ }*/
+#prevBtn a {
+	background-image: url("/assets/arrows.png");
+	display: block;
+	left: 9px;
+	top: 100px;
+	height: 38px;
+	width: 41px;
+}
+#nextBtn a{
+	background-image: url("/assets/arrows.png");
+	background-position: 0 -38px;
+	position: absolute;
+	display: block;
+	left: 909px;
+	height: 38px;
+	width: 41px;
+}
+/*======Slider=======*/
