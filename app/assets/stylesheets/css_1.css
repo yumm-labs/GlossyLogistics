@@ -860,12 +860,46 @@ html body.admin-menu {
 	cursor: default;
 	background-position: -82px -38px;
 }
+
 #carousel-nav-wrapper {
 	background-color: #0f1114;
 	border-top: 1px solid #5a5c60;
 	width: 100%;
 }
-#carousel-nav {
+
+#controls {
+	list-style: none;
+	margin: 0 auto;
+	padding: 0;
+	width: 960px;
+}
+#controls li {
+	float: left;
+	text-align: center;
+	padding: 25px 45px;
+	position: relative;
+	width: 150px;
+}
+#controls a {
+	color: #fff;
+	font: 1.4em arial, sans-serif;
+	text-decoration: none;
+}
+#controls li:hover, #controls li.active {
+	background: #131F2D;
+	background: -webkit-gradient(linear,0 0,0 bottom,from(#131F2D),to(#161c24));
+	background: -moz-linear-gradient(#131F2D,#161c24);
+	background: linear-gradient(#131F2D,#161c24);
+	-pie-background: linear-gradient(#131F2D,#161c24);
+	behavior: url(/sites/amqp.org/themes/genesis_amqp/css/PIE.htc);
+}
+#controls .bullet {
+	left: 112px;
+	position: absolute;
+	top: -12px;
+}
+
+/*#carousel-nav {
 	list-style: none;
 	margin: 0 auto;
 	padding: 0;
@@ -895,7 +929,7 @@ html body.admin-menu {
 	left: 112px;
 	position: absolute;
 	top: -12px;
-}
+}*/
 #explore {
 	background: url(/sites/amqp.org/themes/genesis_amqp/images/explore.png) no-repeat;
 	height: 376px;

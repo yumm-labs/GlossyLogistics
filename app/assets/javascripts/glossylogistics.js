@@ -8,4 +8,9 @@ $(document).ready(function() {
 		prevText : '',
 		nextText : ''
 	});
+
+$('#controls1 a').html('Imports')
+$('#controls2 a').html('Exports')
+$('#controls3 a').html('Customs')
+$('#controls4 a').html('Help')
 });

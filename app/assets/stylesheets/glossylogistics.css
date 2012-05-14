@@ -52,7 +52,7 @@
 	padding: 0;
 	list-style: none;
 }
-#slider-wrapper li {
+#slider-wrapper #slider li {
 	float: left;
 	list-style: none outside none;
 	height: 241px;
@@ -86,7 +86,7 @@
 	height: 38px;
 	width: 41px;
 }
-#nextBtn a{
+#nextBtn a {
 	background-image: url("/assets/arrows.png");
 	background-position: 0 -38px;
 	position: absolute;
@@ -95,4 +95,15 @@
 	height: 38px;
 	width: 41px;
 }
+
+.current{
+	background: -webkit-gradient(linear,0 0,0 bottom,from(#131F2D),to(#161C24));
+	background: -moz-linear-gradient(#131F2D, #161C24) repeat scroll 0 0 transparent;
+}
+.current_img{
+	background:url("/assets/carousel-nav-bullet.png") no-repeat scroll 110px 10px transparent;
+	position:relative;
+	/*top:-12px;*/
+}
+
 /*======Slider=======*/

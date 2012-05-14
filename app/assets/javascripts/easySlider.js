@@ -52,7 +52,7 @@
 			auto:			false,
 			pause:			2000,
 			continuous:		false, 
-			numeric: 		false,
+			numeric: 		true,
 			numericId: 		'controls'
 		}; 
 		
@@ -90,8 +90,11 @@
 					if(options.lastShow) html += ' <span id="'+ options.lastId +'"><a href=\"javascript:void(0);\">'+ options.lastText +'</a></span>';				
 				};
 				
-				html += options.controlsAfter;						
-				$(obj).after(html);										
+				html += options.controlsAfter;
+				
+				
+				 $('#carousel-nav-wrapper').html(html);						
+				 // $(obj).after(html);										
 			};
 			
 			if(options.numeric){									
@@ -122,7 +125,9 @@
 			function setCurrent(i){
 				i = parseInt(i)+1;
 				$("li", "#" + options.numericId).removeClass("current");
+				$("li", "#" + options.numericId).find("a").removeClass("current_img");
 				$("li#" + options.numericId + i).addClass("current");
+				$("li#" + options.numericId + i).find("a").addClass("current_img");
 			};
 			
 			function adjust(){
