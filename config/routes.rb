@@ -14,7 +14,10 @@ GlossyLogistics::Application.routes.draw do
 
   resources :uber_plivo_stack do
     collection do
-       get 'call_receiver'
+       post 'answer_url'
+       post 'fall_back_answer_url'
+       post 'hangup_url'
+       post 'message_url'
     end	
   end 
 
