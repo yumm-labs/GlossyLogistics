@@ -1,5 +1,11 @@
 class UberPlivoStackController < ApplicationController
 
+
+      # def speak(params={})
+          # call_uuid = params.delete('call_uuid')
+          # return request('POST', "/Call/#{call_uuid}/Speak/", params)
+      # end
+
   def answer_url
 
   # {
@@ -12,11 +18,19 @@ class UberPlivoStackController < ApplicationController
     # "Event"=>"StartApp", "action"=>"answer_url", "controller"=>"uber_plivo_stack"
   # }
 
-    # puts "===" + params['CallUUID'] + "==="
+    Rails.logger.info "====== in answer url ===== #{params.inspect} ==========="
+    
+    rest_api = Plivo::RestAPI.new('MAMWI4ZJYWMWI4YZJLZG', 'NzczYmU0NmI2NjNkYTg3ZTY4NTg3NzBmYmZkOWZl')
 
-    msg = "====== in answer url ===== #{params.inspect} ==========="
-    # puts msg
-    Rails.logger.info msg
+    Rails.logger.info "====== #{params['CallUUID'].inspect} ============"
+
+    args = {
+      :call_uuid => params['CallUUID'],
+      :text => 'Hi... welcome to mentii'
+    }
+
+    rest_api.speak(args)
+    
     render :text => "====== in answer url ===== #{params.inspect} ==========="
   end
 
