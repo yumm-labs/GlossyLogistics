@@ -31,7 +31,7 @@ class UberPlivoStackController < ApplicationController
 
     Rails.logger.info "====== in answer url ===== #{params.inspect} ==========="
 
-    dial_number = '917760601060'
+    dial_number = '919742395094'
 
     response = Plivo::Response.new()
     response.addWait({'length' => 1 })
