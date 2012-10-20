@@ -30,11 +30,14 @@ class UberPlivoStackController < ApplicationController
     # }
 
     Rails.logger.info "====== in answer url ===== #{params.inspect} ==========="
-    Rails.logger.info "====== #{params['CallUUID'].inspect} ============"
+
+    dial_number = '917760601060'
 
     response = Plivo::Response.new()
-    response.addWait({'length' => 2 })
-    response.addSpeak('Hi... welcome to mentii...')
+    response.addWait({'length' => 0 })
+    response.addSpeak('Hi... welcome to mentii... We are forwarding call to your mentor... Please wait...');
+    dial = response.addDial()
+    dial.addNumber(dial_number)
     render :xml => response.to_xml()
 
   # rest_api = Plivo::RestAPI.new('MAMWI4ZJYWMWI4YZJLZG', 'NzczYmU0NmI2NjNkYTg3ZTY4NTg3NzBmYmZkOWZl')
