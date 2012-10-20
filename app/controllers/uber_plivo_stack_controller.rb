@@ -30,7 +30,7 @@ class UberPlivoStackController < ApplicationController
 
     resp = rest_api.speak(args)
     
-    Rails.logger.info "===== Speak Response ===== #{resp.inpsect} ==========="
+    Rails.logger.info "===== Speak Response ===== #{resp.inspect} ==========="
     
     render :text => "====== in answer url ===== #{params.inspect} ==========="
   end
