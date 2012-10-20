@@ -34,8 +34,8 @@ class UberPlivoStackController < ApplicationController
     dial_number = '917760601060'
 
     response = Plivo::Response.new()
-    response.addWait({'length' => 0 })
-    response.addSpeak('Hi... welcome to mentii... We are forwarding call to your mentor... Please wait...');
+    response.addWait({'length' => 1 })
+    response.addSpeak('Hi... welcome to mentii... We are forwarding call to your mentor... Please wait...')
     dial = response.addDial()
     dial.addNumber(dial_number)
     render :xml => response.to_xml()
