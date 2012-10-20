@@ -32,10 +32,10 @@ class UberPlivoStackController < ApplicationController
     Rails.logger.info "====== in answer url ===== #{params.inspect} ==========="
     Rails.logger.info "====== #{params['CallUUID'].inspect} ============"
 
-    r = Plivo::Response.new()
-    r.addWait({'length' => 2 })
-    r.addSpeak('Hi welcome to mentii')
-    render :xml => r.to_xml()
+    response = Plivo::Response.new()
+    response.addWait({'length' => 2 })
+    response.addSpeak('Hi... welcome to mentii...')
+    render :xml => response.to_xml()
 
   # rest_api = Plivo::RestAPI.new('MAMWI4ZJYWMWI4YZJLZG', 'NzczYmU0NmI2NjNkYTg3ZTY4NTg3NzBmYmZkOWZl')
   #
