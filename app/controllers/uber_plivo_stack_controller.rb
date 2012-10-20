@@ -19,17 +19,18 @@ class UberPlivoStackController < ApplicationController
   # }
 
     Rails.logger.info "====== in answer url ===== #{params.inspect} ==========="
+    Rails.logger.info "====== #{params['CallUUID'].inspect} ============"
     
     rest_api = Plivo::RestAPI.new('MAMWI4ZJYWMWI4YZJLZG', 'NzczYmU0NmI2NjNkYTg3ZTY4NTg3NzBmYmZkOWZl')
 
-    Rails.logger.info "====== #{params['CallUUID'].inspect} ============"
-
     args = {
-      :call_uuid => params['CallUUID'],
-      :text => 'Hi... welcome to mentii'
+      'call_uuid' => params['CallUUID'],
+      'text' => 'Hi... welcome to mentii'
     }
 
-    rest_api.speak(args)
+    resp = rest_api.speak(args)
+    
+    Rails.logger.info "===== Speak Response ===== #{resp.inpsect} ==========="
     
     render :text => "====== in answer url ===== #{params.inspect} ==========="
   end
