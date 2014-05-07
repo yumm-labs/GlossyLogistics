@@ -1,19 +1,21 @@
 class HomeController < ApplicationController
 
-layout 'glossylogistics'
+  layout 'glossylogistics'
 
-def index
-	render :action => 'home'
-end
+  caches_page :index, :services, :contact_us, :about_us
 
-def services
-end
+  def index
+    render :action => 'home'
+  end
 
-def contact_us
-end
+  def services
+  end
 
-def about_us
-end
+  def contact_us
+  end
+
+  def about_us
+  end
 
 
 end
