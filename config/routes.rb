@@ -12,6 +12,15 @@ GlossyLogistics::Application.routes.draw do
 
   resources :airlines
 
+  resources :uber_plivo_stack do
+    collection do
+       post 'answer_url'
+       post 'fall_back_answer_url'
+       post 'hangup_url'
+       post 'message_url'
+    end	
+  end 
+
   resources :invoices do
     member do
       get 'send_mail'
